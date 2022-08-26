@@ -21,7 +21,7 @@ Later in the semester, assuming you've already cloned your repository locally us
 git fetch seed_repo
 git merge seed_repo/main -m "Fetched new assignment"
 ```
-These commands (0) get the latest assignment from github.com, and (3) merges it with your local files.
+These commands (0) get the latest assignment from github.com, and (1) merges it with your local files.
 
 ## Problem set rules
 Each problem set will consist of a written and programming portion. *Assignemnts must be done individually*. We will check. This course’s policy on academic honesty builds on the honor code and is best stated as "be reasonable." We recognize that interactions with classmates and others can facilitate mastery of the course’s material. However, there remains a line between asking for help and submitting someone else’s work. For individual assignments students are permitted to ask classmates and others for conceptual help so long as that help does not reduce to another doing your work for you (e.g., writing your response, copy-pasting code, or making your slides). Please review the Academic Integrity section of the syllabus for more information.
