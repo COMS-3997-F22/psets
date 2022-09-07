@@ -1,0 +1,223 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{hyperref}
+\usepackage{fixltx2e} % provides \textsubscript
+\usepackage{cleveref}
+\usepackage[options ]{algorithm2e}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\title{COMS BC 3997 - F22: Problem Set 0}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your Name Here                  %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Grace Hopper}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Introduction:}  
+Hello and welcome to COMS BC 3997 - F22!  I know what you are thinking, "ugh, why do I have to do PS 0?  We haven't even learned anything yet."  That might be true, but we wanted to give you all an opportunity to \textbf{practice} completing and turning in assignments for this class, as after \textbf{PS 0}, we will not be so lenient and forgiving in our handling of incorrectly submitted problem sets.
+
+This first assignment \textbf{should not} feel too arduous or time consuming -- in fact, it may even seem trivial.  If it is, good!  It is meant to get you back in the groove of things and ready to tackle this semester, not provide too much mental stress.  If, for whatever reason, you are struggling with this assignment, \textbf{PLEASE} reach out to one of us, your teaching staff -- or even fellow classmates or friends.  We really want to make sure everyone comes into the class confident that they can succeed.
+
+The following exercises will mostly test some basic math and probability concepts as well as getting you more comfortable with \LaTeX. Without further ado, let's jump right in!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\textbf{Problem 1 -- 2 Points:}
+Imagine you are playing Settlers of Catan with your friends -- because what else would you be doing on a Friday night -- and you want to decide what tiles to place your newest settlement next to (for those of you who don't know what Catan is, don't worry about it).  Each tile has a number on it $i \in [2,12]$ (a number from 2 to 12, inclusive), and you want to figure out the probabilities of rolling each of these numbers using two fair, 6-sided dice.  Fill in the second column of ~\Cref{tab:dice}.
+
+Now suppose that one of these dice has been tampered with and can magically only land on "1" or "2" -- each with probability $\frac{1}{2}$.  Fill in the third column of ~\Cref{tab:dice} with the new probabilities.
+
+\textbf{Solution 1:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 1      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bigskip
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|c|}
+      \hline
+      x & P(x is rolled) & P(x is rolled with unfair die) \\ \hline
+      2 & $\frac{1}{36}$ & $\frac{1}{12}$ \\
+      3 & & \\
+      4 & & \\
+      5 & & \\
+      6 & & \\
+      7 & & \\
+      8 & & \\
+      9 & & 0 \\
+      10 & & 0 \\
+      11 & & 0 \\
+      12 & & 0 \\
+      \hline
+    \end{tabular}
+    \caption{Dice Roll Probabilities}
+    \label{tab:dice}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\textbf{Problem 2 -- 1 Point:}
+A conditional probability is just a normal probability, conditioned on some other event.  For example, if $P(A)$ is the probability of event $A$ occurring and $P(B)$ is the probability of event $B$ occurring, then $P(A|B)$ is the probability of event $A$ occurring given that event $B$ occurs.  One of the most famous and useful rules of conditional probability is called Bayes' Rule:
+
+$$P(A|B) = \frac{P(B|A)P(A)}{P(B)}$$
+
+Let's suppose that we wish to predict the probability that it is raining outside without just looking it up on our phone or looking out the window.  We know that on any given day, the probability that it rains is $0.2$, the probability our roommate takes their umbrella with them is $0.3$ (regardless of rain or shine), and the probability our roommate takes his umbrella given it's raining is $0.95$.  What is the probability it is raining given that our roommate just took his umbrella?  What if he hadn't taken his umbrella?
+
+\textbf{Solution 2:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 2      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\textbf{Problem 3 -- 1 Point:}
+Although taking derivatives won't be strictly necessary for this class, we will talk briefly about some basic optimization strategies.  For the sake of this example, let's suppose that we wish to minimize some loss function $\mathcal{L}$ with respect to a variable $x$.  
+
+$$\mathcal{L}(x) = 3x^2 - 2x + 1$$
+
+Given this loss function, what value of $x$ minimizes the loss?  In other words, for what value of $x$ is this function minimal?
+
+\textbf{Solution 3:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 3      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\textbf{Problem 4 -- 1 Point:}
+For this last problem, we will deal with the basics of asymptotic notation.  For those of you who have never seen this before, do not fret!  We will only really deal loosely with the notion of Big-O notation in this class.  For a really simple beginner's guide, see: \url{https://rob-bell.net/2009/06/a-beginners-guide-to-big-o-notation/}. Briefly, Big-O notation is a way for us to talk about assymptotic run-times of algorithms. For those of you who have explored sorting algorithms in past CS classes may recall that insertion sort takes $O(n^2)$ time -- where $n$ is the length of the list to sort -- while merge sort takes $O(n\ln n)$ time.
+
+What is the runtime of the following \texttt{foo} algorithm in Big-O notation?  What does the following algorithm do?
+
+\begin{lstlisting}
+def sum_list(lst):
+    """
+    Function that returns the sum of elements in lst
+    :param lst: input list
+    :type  lst: [int]
+    :return: sum of the list
+    :rtype : int
+    """
+    rtn = 0
+    for elt in lst:
+        rtn += elt
+    return rtn
+
+
+def foo(lst):
+    """
+    Foo Algorithm
+    :param lst: input list of length n
+    :type  lst: [int]
+    :return: ???
+    :rtype : int
+    """
+    for elt in lst:
+        if elt < 0:
+            return -1
+    return sum_list(lst)
+        
+
+\end{lstlisting}
+
+\textbf{Solution 4:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your solution to Problem 4      %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
