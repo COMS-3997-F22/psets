@@ -1,0 +1,178 @@
+\documentclass[]{article}
+
+% add math
+\usepackage{amssymb,amsmath}
+
+% add nice links and colors
+\usepackage{xcolor}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{pdfborder={0 0 0},breaklinks=true,bookmarks=true,colorlinks=true}
+
+% for algorithms
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\newcommand{\setalglineno}[1]{%
+  \setcounter{ALG@line}{\numexpr#1-1}}
+\makeatletter
+\newcommand\fs@spaceruled{\def\@fs@cfont{\bfseries}\let\@fs@capt\floatc@ruled
+  \def\@fs@pre{\vspace{0.4\baselineskip}\hrule height.8pt depth0pt \kern2pt}%
+  \def\@fs@post{\vspace{-0.4\baselineskip}\kern2pt\hrule\relax\vspace{-12pt}}%
+  \def\@fs@mid{\kern2pt\hrule\kern2pt}%
+  \let\@fs@iftopcapt\iftrue}
+\makeatother
+
+% some basic paragraph styling
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% title and author
+\title{COMS BC 3997 - F22: Problem Set 1}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Your Name Here                  %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{Grace Hopper}
+\date{}
+
+% actual document starts
+\begin{document}
+\maketitle % render the title
+
+\textbf{Introduction:}  
+Welcome to the first ``real'' problem set of the semester!  As you are hopefully already aware, this PDF comprises the written component of the first problem set.  In addition to solving the problems found below, you will also need to complete the coding part of the assignment, found in the Github repo. Finally, we'd like to remind you that all work should be yours and yours alone. This being said, in addition to being able to ask questions at office hours, you are allowed to discuss questions with fellow classmates, provided 1) you note the people with whom you collaborated, and 2) you \textbf{DO NOT} copy any answers. Please write up the solutions to all problems independently.
+
+\bigskip
+\textbf{Collaborators:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Names of any Collaborators Here %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+\textbf{Problem 1 (4 points):}
+Which of the following are true and which are false? Explain your answers.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Depth-first search always expands at least as many nodes as A* search with an admissible heuristic.
+    \item h(n) = 0 is an admissible heuristic for the \href{https://en.wikipedia.org/wiki/15_puzzle}{15-Puzzle}.
+    \item Breadth-first search is complete even if zero step costs are allowed.
+    \item Assume that a Queen can move on a chessboard any number of squares in a straight line, vertically or horizontally, in one move, but cannot jump over other pieces. Manhattan distance is an admissible heuristic for the problem of moving the Queen from square A to square B in the smallest number of moves.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 1:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 1a
+    \item % TODO: Your solution to Problem 1b
+    \item % TODO: Your solution to Problem 1c
+    \item % TODO: Your solution to Problem 1d
+\end{enumerate}
+
+\clearpage
+
+\textbf{Problem 2: (2 points)}
+The iterative lengthening search algorithm is to uniform cost search what iterative deepening is to depth first search. The idea is to use increasing limits on path cost. At each iteration, UCS is run up to a path cost of $\lambda$. Then for each new iteration the cost is increased to the lowest path cost of any node in the previous iteration whose cost was greater than $\lambda$.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Show that this algorithm is optimal when all path costs are positive.
+    \item Consider a uniform tree with branching factor b, solution depth d, and unit step costs. How many \textbf{iterations} will iterative lengthening require to find the solution?
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 2:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 2a
+    \item % TODO: Your solution to Problem 2b
+\end{enumerate}
+
+\clearpage
+
+\textbf{Problem 3: (2 points)}
+Describe a scenario in which iterative deepening search performs much worse than depth-first search (for example, $O(d^2)$ vs. $O(d)$).
+\bigskip
+
+\textbf{Solution 3:}
+% TODO: Your solution to Problem 3
+
+\clearpage
+
+\textbf{Problem 4: (3 points)}
+Show that each of the following statements are true, or give a counterexample (note: this is not a CS theory class and so you do not need to provide a full proof - but you should make sure to provide a complete explanation):
+\begin{enumerate}[label=(\alph*)]
+    \item Breadth-first search is a special case of uniform-cost search.
+    \item Uniform-cost search is a special case of A* search.
+\end{enumerate}
+\bigskip
+
+\textbf{Solution 4:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 4a
+    \item % TODO: Your solution to Problem 4b
+\end{enumerate}
+
+\clearpage
+
+\textbf{Problem 5: (2 points)}
+Construct a heuristic that is admissible but NOT consistent (hint: you likely want to construct an artificial example with very few nodes).
+\bigskip
+
+\textbf{Solution 5:}
+% TODO: Your solution to Problem 5
+
+\clearpage
+\textbf{Problem 6: (3 Points)} Consider the AdaptiveStep-RRT (AS-RRT) algorithm (the {\color{blue} blue lines} indicate new steps taken in AS-RRT compared to standard RRT):
+
+\floatstyle{spaceruled}% Select new float style
+\restylefloat{algorithm}% Apply spaceruled float style to algorithm
+\begin{algorithm}[!h]
+\begin{spacing}{1.25}
+\begin{algorithmic}[1]
+\caption{AS-RRT (start and goal states $s_0$, $s_G$, initial tree $T = s_0$, {\color{blue} max and min extend distance $d_{max}$, $d_{min}$, step size change $\delta$}) $\rightarrow$ (final tree $T$)} 
+\For{$i = 1:N$}
+   \State Sample states $s \in \mathcal{S}$ until $s$ is collision-free
+   \State Find closest state $s_c \in T$
+   {\color{blue}\State Set $d = d_{max}$}
+   {\color{blue}\While{$d > d_{min}$}}
+        \State Extend $s_c$ toward $s$ with distance $d$ resulting in state $s'$
+        \If{isCollisionFreePath($s_c$, $s'$)}
+            \State Add $s'$ to $T$
+            {\color{blue} \State Break}
+        \Else
+            \State $d = d - \delta$
+        \EndIf 
+   \EndWhile
+   Return $T$
+\EndFor
+\end{algorithmic}
+\end{spacing}
+\end{algorithm}
+
+\begin{enumerate}[label=(\alph*)]
+    \item Assume that we are using a data structure for our tree where insert and the nearest searches take $O(log|T|)$ and that sample, extend, and isCollisionFreePath are $O(1)$ operations, what is the worst case time coplexity for ONE iteration through the main loop of AdaptiveStep-RRT?
+    
+    \item Do you think that the assumption that isCollisionFreePath is always an $O(1)$ operation is reasonable? Why or why not?
+\end{enumerate}
+
+\textbf{Solution 6:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 5a
+    \item % TODO: Your solution to Problem 5b
+\end{enumerate}
+
+\end{document}
+
