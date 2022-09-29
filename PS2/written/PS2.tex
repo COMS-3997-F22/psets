@@ -1,0 +1,245 @@
+\documentclass[]{article}
+
+% add math
+\usepackage{amssymb,amsmath}
+
+% add nice links and colors
+\usepackage{xcolor}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{pdfborder={0 0 0},breaklinks=true,bookmarks=true,colorlinks=true}
+
+% for algorithms
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\newcommand{\setalglineno}[1]{%
+  \setcounter{ALG@line}{\numexpr#1-1}}
+\makeatletter
+\newcommand\fs@spaceruled{\def\@fs@cfont{\bfseries}\let\@fs@capt\floatc@ruled
+  \def\@fs@pre{\vspace{0.4\baselineskip}\hrule height.8pt depth0pt \kern2pt}%
+  \def\@fs@post{\vspace{-0.4\baselineskip}\kern2pt\hrule\relax\vspace{-12pt}}%
+  \def\@fs@mid{\kern2pt\hrule\kern2pt}%
+  \let\@fs@iftopcapt\iftrue}
+\makeatother
+
+% some basic paragraph styling
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+% title and author
+\title{COMS BC 3997 - F22: Problem Set 2}
+\author{
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    %                                       %
+    % TODO: Your Name Here                  %
+    %                                       %
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}
+\date{}
+
+% actual document starts
+\begin{document}
+\maketitle % render the title
+
+\textbf{Introduction:}  
+Welcome to the second problem set of the semester!  As you are hopefully already aware, this PDF comprises the written component of the first problem set.  In addition to solving the problems found below, you will also need to complete the coding part of the assignment, found in the Github repo. Finally, we'd like to remind you that all work should be yours and yours alone. This being said, in addition to being able to ask questions at office hours, you are allowed to discuss questions with fellow classmates, provided 1) you note the people with whom you collaborated, and 2) you \textbf{DO NOT} copy any answers. Please write up the solutions to all problems independently.
+
+\bigskip
+\textbf{Collaborators:}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                       %
+% TODO: Names of any Collaborators Here %
+%                                       %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Markov Decision Processes (9 Points)}
+Annie is a 5-year old girl who loves eating candy and is ambivalent regarding vegetables. She can either choose to eat candy (Hershey's, Skittles, Peanut Butter Cups) or eat vegetables during every meal. Eating candy gives her +10 in happiness points, while eating vegetables only gives her +4 happiness points. But if she eats too much candy while sick, her teeth will all fall out (she won't be able to eat any more). Annie will be in one of three states: healthy, sick, and toothless. Eating candy tends to make Annie sick, while eating vegetables tends to keep Annie healthy. If she eats too much candy, she'll be toothless and won't eat anything else. The transitions are shown in the table below.
+
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+        Health condition &	Candy or Vegetables? &	Next condition & Probability \\\hline
+        healthy &	vegetables &	healthy & 	1 \\\hline
+        healthy &	candy &	healthy & 	1/4 \\\hline
+        healthy &	candy &	sick & 	3/4 \\\hline
+        sick &	vegetables &	healthy & 	1/4 \\\hline
+        sick &	vegetables &	sick & 	3/4 \\\hline
+        sick &	candy &	sick & 	7/8 \\\hline
+        sick &	candy &	toothless & 	1/8 \\\hline
+    \end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 1: (2 points)}
+Model this problem as a Markov Decision Process: specify each state, action, and transition $T(s,a,s')$ and reward $R(a)$ functions.
+
+\bigskip
+
+% TODO: Your solution to Problem 1 (either fill out the below or draw a diagram)
+\textbf{Solution 1:}
+\begin{itemize}
+    \item The MDP states are:
+    \item The MDP actions are:
+    \item The MDP transitions are:
+    \item The MDP rewards are:
+\end{itemize}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 2: (2 points)}
+Write down the Value function $V(s)$ for this problem in all possible states under the following policies (the discount factor can be expressed as $\gamma$):
+
+Remember $V^{\pi_k} = \max_a \sum_{s^\prime} T(s,a,s^{\prime})\left[R(s,a,s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
+
+Hint: you may want to first write things down leaving $V^{\pi_k}(\cdot)$ as a variable and then solve a system of equations resulting in fractions related to $\gamma$ -- don't worry if it doesn't simplify well!
+
+\begin{enumerate}[label=(\alph*)]
+    \item $\pi_1$ in which Annie always eats candy
+    \item $\pi_2$ in which Annie always eats vegetables
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 2:}
+\begin{enumerate}[label=(\alph*)]
+    \item The Value function under $\pi_1$ is:
+    % TODO: Your solution to Problem 2a
+    \item The Value function under $\pi_2$ is:
+    % TODO: Your solution to Problem 2b
+\end{enumerate}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 3: (3 points)}
+Start with a policy in which Annie always eats candy no matter what the her health condition is ($\pi_1$ from Problem 2). Simulate the first two iterations of the policy iteration algorithm. Show how the policy evolves as you run the algorithm. What is the policy after the third iteration? Set $\gamma = 0.9$. 
+
+Hint: You can start by plugging in $\gamma$ to your solution from Problem 2, then extract the optimal policy, recompute the values, and re-extract the policy!
+
+Remember $\pi_{k+1} = arg\max_a \sum_{s^\prime} T(s,a,s^{\prime})\left[R(s,a,s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
+
+\bigskip
+
+\textbf{Solution 3:}
+% TODO: Your solution to Problem 3
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 4: (2 points)}
+Are the following statements true or false for an MDP? Briefly explain why (1-3 sentences).
+\begin{enumerate}[label=(\alph*)]
+    \item If one is using value iteration and the values have converged, the policy must have converged as well.
+    \item For an infinite horizon MDP with a finite number of states and actions and with a discount factor that satisfies $0 < \gamma <= 1$, policy iteration is guaranteed to converge.
+    \item There may be more than one optimal value function.
+    \item There may be more than one optimal policy.
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 4:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 4a
+    \item % TODO: Your solution to Problem 4b
+    \item % TODO: Your solution to Problem 4c
+    \item % TODO: Your solution to Problem 4d
+\end{enumerate}
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Reinforcement Learning (6 points)}
+
+\textbf{Problem 5: (1 point)}\\
+In class we learned about temporal-difference techniques for reinforcement learning. Now we'd like to take the next step (literally). Suppose we take two steps and get the state/action sequence s-a-s'-a'-s''. Write the temporal-difference update equations for those transitions in terms of $V(\cdot)$.
+
+\bigskip
+
+\textbf{Solution 5:}
+% TODO: Your solution to Problem 5
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 6: (3 points)}\\
+Consider the following deterministic Transition/Reward Model for an MDP with states (S1, S2, S3, S4, S5, S6) and actions (A1, A2, A3):
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+        From &	Action &	To &	Reward \\\hline
+        S1 &	A3 &	S2 &	3 \\\hline
+        S2 &	A1 &	S1 &	2 \\\hline
+        S2 &	A2 &	S3 &	1 \\\hline
+        S3 &	A1 &	S4 &	2 \\\hline
+        S3 &	A2 &	S5 &	10 \\\hline
+        S4 &	A3 &	S3 &	5 \\\hline
+        S5 &	A1 & 	S6 &	7 \\\hline
+        S6 &	A3 &	S5 &	2 \\\hline
+    \end{tabular}
+\end{table}
+
+\begin{enumerate}[label=(\alph*)]   
+    \item Suppose we start in state S3. We run Q-learning on this MDP using a greedy policy (always choose action with best Q-value). Ties are given to the action with the lower number ($A1 > A2$, etc). Assume $\alpha=0.5$ and $\gamma=0.9$. We initialize all Q-values to 0 and update the Q-values after each transition. What are the first 4 (state, action) pairs visited, including the start state and the following action? Remember that: $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + (\alpha)[R(s,a,s') + \gamma \max_{a'}Q(s',a')]$$
+    \item Why is this simple-greedy policy limited and what can we alter about this algorithm to overcome this limitation? 
+\end{enumerate}
+
+\bigskip
+
+\textbf{Solution 6:}
+\begin{enumerate}[label=(\alph*)]
+    \item % TODO: Your solution to Problem 6a
+    \item % TODO: Your solution to Problem 6b
+\end{enumerate}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Problem 7: (2 points)}\\
+Now consider the following Transition/Reward Model for an MDP with states (S1, S2, S3, S4, S5) and actions (A1, A2). Note that (S4, S5) are terminal states with no valid actions. Assume $\gamma=1.0$:
+\begin{table}[htb]
+\centering
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+        From &	Action &	To &	Reward &	Probability \\\hline
+        S1 &	A1 &	S2 &	0 &	0.5 \\\hline
+        S1 &	A1 &	S3 &	0 &	0.5 \\\hline
+        S1 &	A2 &	S2 &	0 &	0.25 \\\hline
+        S1 &	A2 &	S3 &	0 &	0.75 \\\hline
+        S2 &	A1 &	S4 &	6 &	1.0 \\\hline
+        S2 &	A2 &	S4 &	12 &	0.5 \\\hline
+        S2 &	A2 &	S5 &	4 &	0.5 \\\hline
+        S3 &	A1 &	S5 &	16 &	1.0 \\\hline
+    \end{tabular}
+\end{table}
+Initialize $Q(\cdot,\cdot) = 0$ for all (state, action) pairs for q-learning. With $\alpha = 0.5$, compute $Q(\cdot,\cdot)$ after seeing the following series of transitions:
+\begin{itemize}
+    \item $[(S1,A1,S2) \rightarrow (S2,A2,S4)]$ followed by
+    \item $[(S1,A2,S3) \rightarrow (S3,A1,S5)]$ followed by
+    \item $[(S1,A2,S2) \rightarrow (S2,A1,S4)]$.
+\end{itemize}
+Again, remember that: $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + (\alpha)[R(s,a,s') + \gamma \max_{a'}Q(s',a')]$$
+
+\bigskip
+
+\textbf{Solution 7:}
+% TODO: Your solution to Problem 7
+
+
+\end{document}
+
