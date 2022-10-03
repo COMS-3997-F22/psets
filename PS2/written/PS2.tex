@@ -66,21 +66,21 @@ Welcome to the second problem set of the semester!  As you are hopefully already
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Markov Decision Processes (9 Points)}
+\section{Markov Decision Processes (13 Points)}
 Annie is a 5-year old girl who loves eating candy and is ambivalent regarding vegetables. She can either choose to eat candy (Hershey's, Skittles, Peanut Butter Cups) or eat vegetables during every meal. Eating candy gives her +10 in happiness points, while eating vegetables only gives her +4 happiness points. But if she eats too much candy while sick, her teeth will all fall out (she won't be able to eat any more). Annie will be in one of three states: healthy, sick, and toothless. Eating candy tends to make Annie sick, while eating vegetables tends to keep Annie healthy. If she eats too much candy, she'll be toothless and won't eat anything else. The transitions are shown in the table below.
 
 \begin{table}[htb]
 \centering
     \begin{tabular}{|c|c|c|c|}
       \hline
-        Health condition &	Candy or Vegetables? &	Next condition & Probability \\\hline
-        healthy &	vegetables &	healthy & 	1 \\\hline
-        healthy &	candy &	healthy & 	1/4 \\\hline
-        healthy &	candy &	sick & 	3/4 \\\hline
-        sick &	vegetables &	healthy & 	1/4 \\\hline
-        sick &	vegetables &	sick & 	3/4 \\\hline
-        sick &	candy &	sick & 	7/8 \\\hline
-        sick &	candy &	toothless & 	1/8 \\\hline
+        Health condition &  Candy or Vegetables? &  Next condition & Probability \\\hline
+        healthy &   vegetables &    healthy &   1 \\\hline
+        healthy &   candy & healthy &   1/4 \\\hline
+        healthy &   candy & sick &  3/4 \\\hline
+        sick &  vegetables &    healthy &   1/4 \\\hline
+        sick &  vegetables &    sick &  3/4 \\\hline
+        sick &  candy & sick &  7/8 \\\hline
+        sick &  candy & toothless &     1/8 \\\hline
     \end{tabular}
 \end{table}
 
@@ -101,12 +101,12 @@ Model this problem as a Markov Decision Process: specify each state, action, and
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Problem 2: (2 points)}
-Write down the Value function $V(s)$ for this problem in all possible states under the following policies (the discount factor can be expressed as $\gamma$):
+\textbf{Problem 2: (4 points)}
+Write down the Value function $V(s)$ for this problem in all possible states under the following policies (the discount factor can be expressed as $\gamma$.
 
 Remember $V^{\pi_k} = \max_a \sum_{s^\prime} T(s,a,s^{\prime})\left[R(s,a,s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
 
-Hint: you may want to first write things down leaving $V^{\pi_k}(\cdot)$ as a variable and then solve a system of equations resulting in fractions related to $\gamma$ -- don't worry if it doesn't simplify well!
+Hint: you may want to first write things down leaving $V^{\pi_k}(\cdot)$ as a variable and then solve a system of equations resulting in fractions related to $\gamma$ -- don't worry if it doesn't simplify well (and don't feel like you need to simplify it fully!
 
 \begin{enumerate}[label=(\alph*)]
     \item $\pi_1$ in which Annie always eats candy
@@ -117,25 +117,60 @@ Hint: you may want to first write things down leaving $V^{\pi_k}(\cdot)$ as a va
 
 \textbf{Solution 2:}
 \begin{enumerate}[label=(\alph*)]
-    \item The Value function under $\pi_1$ is:
-    % TODO: Your solution to Problem 2a
-    \item The Value function under $\pi_2$ is:
-    % TODO: Your solution to Problem 2b
+    \item The Value function under $\pi_1$ is:\\
+    \begin{equation*}
+    \begin{split}
+        % TODO: Your solution to Problem 2a
+        V^{\pi_1}(\cdot) &= ? \\
+    \end{split}
+    \end{equation*}
+    
+    \item The Value function under $\pi_2$ is:\\
+    \begin{equation*}
+    \begin{split}
+        % TODO: Your solution to Problem 2b
+        V^{\pi_1}(\cdot) &= ? \\
+    \end{split}
+    \end{equation*}
 \end{enumerate}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Problem 3: (3 points)}
-Start with a policy in which Annie always eats candy no matter what the her health condition is ($\pi_1$ from Problem 2). Simulate the first two iterations of the policy iteration algorithm. Show how the policy evolves as you run the algorithm. What is the policy after the third iteration? Set $\gamma = 0.9$. 
+\textbf{Problem 3: (5 points)}
+Start with a policy in which Annie always eats candy no matter what the her health condition is ($\pi_1$ from Problem 2). Simulate the first two iterations of the policy iteration algorithm. Show how the policy evolves as you run the algorithm. Set $\gamma = 0.9$. 
 
-Hint: You can start by plugging in $\gamma$ to your solution from Problem 2, then extract the optimal policy, recompute the values, and re-extract the policy!
+Hint: You can start by plugging in $\gamma$ to your solution from Problem 2, then extract the optimal policy, recompute the values, and re-extract the policy (see the solution template below)!
 
 Remember $\pi_{k+1} = arg\max_a \sum_{s^\prime} T(s,a,s^{\prime})\left[R(s,a,s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
 
 \bigskip
 
-\textbf{Solution 3:}
+\textbf{Solution 3:} \\
 % TODO: Your solution to Problem 3
+The Value function under $\pi_1$ is:\\
+\begin{equation*}
+\begin{split}
+    V^{\pi_1}(\cdot) &= ? \\
+\end{split}
+\end{equation*}
+Using Policy extraction our new policy $\pi_{1.1}$ is:
+\begin{equation*}
+\begin{split}
+    \pi_{1.1}(\cdot) &= ? \\
+\end{split}
+\end{equation*}
+The Value function under $\pi_{1.1}$ is:\\
+\begin{equation*}
+\begin{split}
+    V^{\pi_{1.1}}(\cdot) &= ? \\
+\end{split}
+\end{equation*}
+Using Policy extraction our new policy $\pi_{1.2}$ is:
+\begin{equation*}
+\begin{split}
+    \pi_{1.2}(\cdot) &= ? \\
+\end{split}
+\end{equation*}
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,7 +199,7 @@ Are the following statements true or false for an MDP? Briefly explain why (1-3 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Reinforcement Learning (6 points)}
+\section{Reinforcement Learning (7 points)}
 
 \textbf{Problem 5: (1 point)}\\
 In class we learned about temporal-difference techniques for reinforcement learning. Now we'd like to take the next step (literally). Suppose we take two steps and get the state/action sequence s-a-s'-a'-s''. Write the temporal-difference update equations for those transitions in terms of $V(\cdot)$.
@@ -182,15 +217,15 @@ Consider the following deterministic Transition/Reward Model for an MDP with sta
 \centering
     \begin{tabular}{|c|c|c|c|}
       \hline
-        From &	Action &	To &	Reward \\\hline
-        S1 &	A3 &	S2 &	3 \\\hline
-        S2 &	A1 &	S1 &	2 \\\hline
-        S2 &	A2 &	S3 &	1 \\\hline
-        S3 &	A1 &	S4 &	2 \\\hline
-        S3 &	A2 &	S5 &	10 \\\hline
-        S4 &	A3 &	S3 &	5 \\\hline
-        S5 &	A1 & 	S6 &	7 \\\hline
-        S6 &	A3 &	S5 &	2 \\\hline
+        From &  Action &    To &    Reward \\\hline
+        S1 &    A3 &    S2 &    3 \\\hline
+        S2 &    A1 &    S1 &    2 \\\hline
+        S2 &    A2 &    S3 &    1 \\\hline
+        S3 &    A1 &    S4 &    2 \\\hline
+        S3 &    A2 &    S5 &    10 \\\hline
+        S4 &    A3 &    S3 &    5 \\\hline
+        S5 &    A1 &    S6 &    7 \\\hline
+        S6 &    A3 &    S5 &    2 \\\hline
     \end{tabular}
 \end{table}
 
@@ -210,21 +245,21 @@ Consider the following deterministic Transition/Reward Model for an MDP with sta
 
 \clearpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\textbf{Problem 7: (2 points)}\\
+\textbf{Problem 7: (3 points)}\\
 Now consider the following Transition/Reward Model for an MDP with states (S1, S2, S3, S4, S5) and actions (A1, A2). Note that (S4, S5) are terminal states with no valid actions. Assume $\gamma=1.0$:
 \begin{table}[htb]
 \centering
     \begin{tabular}{|c|c|c|c|c|}
       \hline
-        From &	Action &	To &	Reward &	Probability \\\hline
-        S1 &	A1 &	S2 &	0 &	0.5 \\\hline
-        S1 &	A1 &	S3 &	0 &	0.5 \\\hline
-        S1 &	A2 &	S2 &	0 &	0.25 \\\hline
-        S1 &	A2 &	S3 &	0 &	0.75 \\\hline
-        S2 &	A1 &	S4 &	6 &	1.0 \\\hline
-        S2 &	A2 &	S4 &	12 &	0.5 \\\hline
-        S2 &	A2 &	S5 &	4 &	0.5 \\\hline
-        S3 &	A1 &	S5 &	16 &	1.0 \\\hline
+        From &  Action &    To &    Reward &    Probability \\\hline
+        S1 &    A1 &    S2 &    0 & 0.5 \\\hline
+        S1 &    A1 &    S3 &    0 & 0.5 \\\hline
+        S1 &    A2 &    S2 &    0 & 0.25 \\\hline
+        S1 &    A2 &    S3 &    0 & 0.75 \\\hline
+        S2 &    A1 &    S4 &    6 & 1.0 \\\hline
+        S2 &    A2 &    S4 &    12 &    0.5 \\\hline
+        S2 &    A2 &    S5 &    4 & 0.5 \\\hline
+        S3 &    A1 &    S5 &    16 &    1.0 \\\hline
     \end{tabular}
 \end{table}
 Initialize $Q(\cdot,\cdot) = 0$ for all (state, action) pairs for q-learning. With $\alpha = 0.5$, compute $Q(\cdot,\cdot)$ after seeing the following series of transitions:
@@ -242,4 +277,3 @@ Again, remember that: $$Q(s,a) \leftarrow (1-\alpha)Q(s,a) + (\alpha)[R(s,a,s') 
 
 
 \end{document}
-

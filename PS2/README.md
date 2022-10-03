@@ -1,32 +1,32 @@
 # COMS BC 3997 - F22
 # PS2: Markov Decision Processes and Reinforcement Learning
-* Due: 5pm, Friday October 14th
+* Due: 11:59pm, Saturday October 15th
 
 In this assignment, you will implement sequence decision making algorithms and apply these to a gridworld and to Pacman. Note: We will use the Pacman framework developed at Berkeley. This framework is used worldwide to teach AI, therefore it is very important that you DO NOT publish your solutions online.
 
-## Written Assignment (15 points)
+## Written Assignment (20 points)
 
 As usual please go to the PDF in the written folder for the written instructions.
 
-Markov Decision Processes (9 points)
+Markov Decision Processes (13 points)
  
 ⋅⋅⋅Question 1 (2 points)
  
-⋅⋅⋅Question 2 (2 points)
+⋅⋅⋅Question 2 (4 points)
  
-⋅⋅⋅Question 3 (3 points)
+⋅⋅⋅Question 3 (5 points)
 
 ⋅⋅⋅Question 4 (2 points)
 
-Reinforcement Learning (6 points)
+Reinforcement Learning (7 points)
 	
 ⋅⋅⋅Question 5 (1 points)
 	
 ⋅⋅⋅Question 6 (3 points)
 	
-⋅⋅⋅Question 7 (2 points)
+⋅⋅⋅Question 7 (3 points)
 
-## Pacman (25 points)
+## Pacman (20 points + 5 bonus)
 
 <img src="http://ai.berkeley.edu/projects/release/reinforcement/v1/001/capsule.png" />
 
@@ -127,7 +127,9 @@ Hint: On the default BookGrid, running value iteration for 5 iterations should g
 
 Grading: Your value iteration agent will be graded on a new grid. We will check your values, Q-values, and policies after fixed numbers of iterations and at convergence (e.g. after 100 iterations).
 
-### Question 2 (5 points): Policies
+### Question 2 (5 bonus points): Policies
+
+**NOTE: this is now bonus points!**
 
 Consider the `DiscountGrid layout`, shown below. This grid has two terminal states with positive payoff (in the middle row), a close exit with payoff +1 and a distant exit with payoff +10. The bottom row of the grid consists of terminal states with negative payoff (shown in red); each state in this “cliff” region has payoff -10. The starting state is the yellow square. We distinguish between two types of paths: (1) paths that “risk the cliff” and travel near the bottom row of the grid; these paths are shorter but risk earning a large negative payoff, and are represented by the red arrow in the figure below. (2) paths that “avoid the cliff” and travel along the top edge of the grid. These paths are longer but are less likely to incur huge negative payoffs. These paths are represented by the green arrow in the figure below.
 
@@ -214,7 +216,9 @@ This will invoke a crawling robot which atempts to learn how to move through Q-l
 
 ### Question 5 (2 points): Q-Learning and Pacman
 
-**Note: you may not have to do anything here if you wrote your previous code in a generic manner!** Time to play some Pacman! Pacman will play games in two phases. In the first phase, **training**, Pacman will begin to learn about the values of positions and actions. Because it takes a very long time to learn accurate Q-values even for tiny grids, Pacman’s training games run in quiet mode by default, with no GUI (or console) display. Once Pacman’s training is complete, he will enter testing mode. When **testing**, Pacman’s `self.epsilon` and `self.alpha` will be set to 0.0, effectively stopping Q-learning and disabling exploration, in order to allow Pacman to exploit his learned policy. Test games are shown in the GUI by default. Without any code changes you should be able to run Q-learning Pacman for very tiny grids as follows:
+**NOTE: you may not have to do anything here if you wrote your previous code in a generic manner! So try the autograder first!** 
+
+Time to play some Pacman! Pacman will play games in two phases. In the first phase, **training**, Pacman will begin to learn about the values of positions and actions. Because it takes a very long time to learn accurate Q-values even for tiny grids, Pacman’s training games run in quiet mode by default, with no GUI (or console) display. Once Pacman’s training is complete, he will enter testing mode. When **testing**, Pacman’s `self.epsilon` and `self.alpha` will be set to 0.0, effectively stopping Q-learning and disabling exploration, in order to allow Pacman to exploit his learned policy. Test games are shown in the GUI by default. Without any code changes you should be able to run Q-learning Pacman for very tiny grids as follows:
 
 `python pacman.py -p PacmanQAgent -x 2000 -n 2010 -l smallGrid`
 
