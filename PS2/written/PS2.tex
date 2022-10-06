@@ -104,7 +104,7 @@ Model this problem as a Markov Decision Process: specify each state, action, and
 \textbf{Problem 2: (4 points)}
 Write down the Value function $V(s)$ for this problem in all possible states under the following policies (the discount factor can be expressed as $\gamma$.
 
-Remember $V^{\pi_k} = \max_a \sum_{s^\prime} T(s,a,s^{\prime})\left[R(s,a,s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
+Remember $V^{\pi_k} = \sum_{s^\prime} T(s,\pi_k(s),s^{\prime})\left[R(s,\pi_k(s),s^\prime) + \gamma V^{\pi_k}(s^\prime)\right]$\\
 
 Hint: you may want to first write things down leaving $V^{\pi_k}(\cdot)$ as a variable and then solve a system of equations resulting in fractions related to $\gamma$ -- don't worry if it doesn't simplify well (and don't feel like you need to simplify it fully!
 
