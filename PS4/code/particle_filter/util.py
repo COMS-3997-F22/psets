@@ -2,7 +2,7 @@ import random
 
 class Util:
     def __init__(self, robot_object, process_noise, measurement_noise):
-        self.robot_object = robot_object            # Robot Object (see ackermannCar.py)
+        self.robot_object = robot_object            # Robot Object (see pointMass.py)
         self.process_noise = process_noise          # Amount of noise on motion
         self.measurement_noise = measurement_noise  # Amount of noise on sensors
 
