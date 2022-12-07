@@ -1,0 +1,30 @@
+<launch>
+    <!-- Adapted from: https://github.com/duckietown/dt-core/blob/337a4101d301bd8fab8aea8026626796af6061ea/packages/duckietown_demos/launch/master.launch-->
+    <arg name="veh" default="$(env VEHICLE_NAME)"
+         doc="The name of the robot (e.g., autobot01, watchtower02, ...)"/>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)"
+         doc="The type of the robot (e.g., duckiebot, watchtower, traffic_light, ...)"/>
+    <arg name="robot_configuration" default="$(env ROBOT_CONFIGURATION)"
+         doc="The configuration of the robot (e.g., DB19, DB20, WT18, ...)"/>
+    <arg name="config" default="baseline" />
+    <arg name="camera_topic" default="camera_node"/>
+    <arg name="param_file_name" default="default" />
+    <arg name="verbose" default="false" />
+    <!-- end args -->
+
+    <arg name="pkg_name" value="coms3997"/>
+    <arg name="node_name1" default="AlwaysNoSign"/>
+    <arg name="node_name2" default="StopOrStraight"/>
+
+    <group ns="$(arg veh)">  
+        <node  name="$(arg node_name1)" pkg="$(arg pkg_name)" type="$(arg node_name1).py" output="screen">
+            <remap from="~image_compressed" to="/$(arg veh)/camera_node/image/compressed"/> 
+        </node>
+        <node  name="$(arg node_name2)" pkg="$(arg pkg_name)" type="$(arg node_name2).py" output="screen"/>
+    </group>
+
+    <!-- Publications -->
+
+    <!-- Subscriptions -->
+    
+</launch>
